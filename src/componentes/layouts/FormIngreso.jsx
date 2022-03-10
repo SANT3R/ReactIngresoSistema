@@ -5,19 +5,19 @@ import { Boton } from '../UI/Boton.jsx';
 import swal from 'sweetalert';
 
 export const FormIngreso = () => {
-  // const URLUsuarios= "https://backend-edw.herokuapp.com/usuarios";
+  const URLUsuarios= "https://backend-edw.herokuapp.com/usuarios";
   // const URLogin= "https://backend-edw.herokuapp.com/login";
   const axios = require('axios').default;
 
 
-  // function FetchTraer(){
-  //   fetch(URLUsuarios)
-  //   .then(response => response.json())
-  //   .then(usuario => {
-  //       console.log(usuario)
-  //   })
-  // }
-  // FetchTraer()
+  function FetchTraer(){
+    fetch(URLUsuarios)
+    .then(response => response.json())
+    .then(usuario => {
+        console.log(usuario)
+    })
+  }
+  FetchTraer()
   
 
   function Logearse( e ){
@@ -38,7 +38,15 @@ export const FormIngreso = () => {
           text: "Verifique los datos",
           icon: "error",
           button: "Aceptar",
-          timer: "2000"
+          timer: "5000"
+        });
+      }else if(response.data.length>22){
+        swal({
+          title: "Ingreso Exitoso",
+          text: `Bienvenido ${nombre} `,
+          icon: "success",
+          button: "Aceptar",
+          timer: "5000"
         });
       }
     })
