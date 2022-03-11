@@ -5,6 +5,7 @@ export const MainIngreso = () => {
   return (
     <main>
           <FormIngreso />
+        <FormIngreso />
     </main>
   )
 }
