@@ -4,7 +4,6 @@ import { FormIngreso } from './FormIngreso.jsx'
 export const MainIngreso = () => {
   return (
     <main>
-          <FormIngreso />
         <FormIngreso />
     </main>
   )

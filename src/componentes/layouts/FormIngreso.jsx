@@ -22,8 +22,8 @@ export const FormIngreso = () => {
 
   function Logearse( e ){
     e.preventDefault();
-    const userNombre= document.getElementById('ipt-nombre');
-    const contraSena= document.getElementById('ipt-contrasena');
+    const userNombre= document.getElementById('ipt-nombreIngreso');
+    const contraSena= document.getElementById('ipt-contrasenaIngreso');
     let nombre= userNombre.value;
     let contrasena= contraSena.value;
     axios.post("https://backend-edw.herokuapp.com/login", {
@@ -78,10 +78,10 @@ export const FormIngreso = () => {
   return (
     <section className="contenido">
       <h2>Iniciar Sesion</h2>
-      <article class="cont">
+      <article className="cont">
         <div id="formIngreso">
-          <Input tipo="text" contenido="Nombre" minimo="8" maximo="60" idNombre="ipt-nombre" />
-          <Input tipo="password" contenido="Contrasena" minimo="6" maximo="6" idNombre="ipt-contrasena" />
+          <Input tipo="text" contenido="Nombre" minimo="8" maximo="60" idNombre="ipt-nombreIngreso" />
+          <Input tipo="password" contenido="Contrasena" minimo="6" maximo="6" idNombre="ipt-contrasenaIngreso" />
         </div>
         <Boton tipo="submit" contenido="Ingresar" click={Logearse} />
         <Alternativa contenidoP="No se ha registrado?" contenidoLink="Registrarme" direccion="/registro" />

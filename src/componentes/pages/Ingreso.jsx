@@ -4,7 +4,7 @@ import { MainIngreso } from '../layouts/MainIngreso'
 
 export const Ingreso = () => {
   return (
-    <div class="container">
+    <div className="container">
         <Header />
         <MainIngreso />
     </div>

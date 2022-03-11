@@ -10,9 +10,9 @@ export const FormRegistro = () => {
   function Registrarse( e ){
     e.preventDefault();
     console.log("Logearse");
-    let userNombre= document.getElementById('ipt-user-nombre').value;
-    let contrasena= document.getElementById('ipt-contrasena').value;
-    let nombre= document.getElementById('ipt-nombre').value;
+    let userNombre= document.getElementById('ipt-user-nombreRegistro').value;
+    let contrasena= document.getElementById('ipt-contrasenaRegistro').value;
+    let nombre= document.getElementById('ipt-nombreRegistro').value;
     axios.post("https://backend-edw.herokuapp.com/usuario", {
       "username": userNombre,
       "password": contrasena,
@@ -20,6 +20,15 @@ export const FormRegistro = () => {
     })
     .then(function (response) {
       console.log(response);
+      if(response.data.Message==="Usuario Registrado con exito"){
+        swal({
+          title: "REGISTRO EXITOSO",
+          text: "Usuario "+userNombre+" Registrado con exito",
+          icon: "info",
+          button: "Aceptar",
+          timer: "5000"
+        });
+      }
       if(response.data.Message==="Usuario con ese username ya esta registrado"){
         swal({
           title: "USUARIO EXISTENTE",
@@ -40,9 +49,9 @@ export const FormRegistro = () => {
       <h2>Registarse</h2>
       <article className="cont">
       <div id="formIngreso">
-          <Input tipo="text" contenido="Nombre de usuario" minimo="8" maximo="60" idNombre="ipt-user-nombre" />
-          <Input tipo="password" contenido="Contrasena" minimo="6" maximo="6" idNombre="ipt-contrasena" />
-          <Input tipo="text" contenido="Nombre" minimo="8" maximo="60" idNombre="ipt-nombre" />
+          <Input tipo="text" contenido="Nombre de usuario" minimo="8" maximo="60" idNombre="ipt-user-nombreRegistro" />
+          <Input tipo="password" contenido="Contrasena" minimo="6" maximo="6" idNombre="ipt-contrasenaRegistro" />
+          <Input tipo="text" contenido="Nombre" minimo="8" maximo="60" idNombre="ipt-nombreRegistro" />
       </div>
       <Boton tipo="submit" contenido="Registrarse" click={Registrarse} />
       <Alternativa contenidoP="Ya esta registrado?" contenidoLink="Ingresar" direccion="/" />
